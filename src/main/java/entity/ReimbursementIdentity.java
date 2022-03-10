@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pending_reimbursements")
+@Table(name = "reimbursement_details")
 public class ReimbursementIdentity{
 
     @Id
@@ -14,6 +14,24 @@ public class ReimbursementIdentity{
     private int reimbursementId;
 
     @Column(name = "requesting_employee_id")
-    private int 
+    private int requestingEmployeeId;
+
+    @Column(name = "reimbursement_amount")
+    private double reimbursementAmount;
+
+    @Column(name = "reimbursement_pending")
+    private boolean reimbursementPending;
+
+    @Column(name = "date_of_request")
+    private String dateOfRequest;
+
+    public ReimbursementIdentity(){
+
+    }
+
+   
+
+
+
 
 }

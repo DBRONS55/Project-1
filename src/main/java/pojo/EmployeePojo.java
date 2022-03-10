@@ -91,8 +91,13 @@ public class EmployeePojo {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(employeeAddress, employeeFirstName, employeeId, employeeLastName, employeePhoneNumber,
-				password);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((employeeFirstName == null) ? 0 : employeeFirstName.hashCode());
+		result = prime * result + employeeId;
+		result = prime * result + ((employeeLastName == null) ? 0 : employeeLastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		return result;
 	}
 
 	@Override
@@ -104,11 +109,26 @@ public class EmployeePojo {
 		if (getClass() != obj.getClass())
 			return false;
 		EmployeePojo other = (EmployeePojo) obj;
-		return Objects.equals(employeeAddress, other.employeeAddress)
-				&& Objects.equals(employeeFirstName, other.employeeFirstName) && employeeId == other.employeeId
-				&& Objects.equals(employeeLastName, other.employeeLastName)
-				&& Objects.equals(employeePhoneNumber, other.employeePhoneNumber)
-				&& Objects.equals(password, other.password);
+		if (employeeFirstName == null) {
+			if (other.employeeFirstName != null)
+				return false;
+		} else if (!employeeFirstName.equals(other.employeeFirstName))
+			return false;
+		if (employeeId != other.employeeId)
+			return false;
+		if (employeeLastName == null) {
+			if (other.employeeLastName != null)
+				return false;
+		} else if (!employeeLastName.equals(other.employeeLastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		return true;
 	}
+
+	
 		
 }
